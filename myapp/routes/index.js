@@ -38,7 +38,7 @@ app.post("book/updated/:id", (req, res, next) => {
   if (updatedBook >= 0 && updatedBook < booksData.books.length) {
     booksData.books[updatedBook] = req.body;
   }
-  res.render('index', {bookData:bookData.books[updatedBook]})
+  res.render('index', {updatedBook:bookData.books[updatedBook]})
 })
 
 app.get('/books/edit/:id', (req, res, next) => {
