@@ -1,4 +1,4 @@
-{
+var booksData = {
     books:[
         {
             "isbn":"9781593279509",
@@ -90,4 +90,4 @@
         }
     ]
 }
-module.export = books;
+module.exports = booksData;

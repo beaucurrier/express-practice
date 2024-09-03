@@ -2,4 +2,7 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  p Our books 
+  ul
+    each item in bookData
+      a(href="/books/#{item.isbn}")= "Title: " + item.title + " Name: " + item.author
