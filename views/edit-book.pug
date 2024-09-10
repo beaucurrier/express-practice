@@ -4,7 +4,8 @@ html
     title Edit Book
   body
     h1 Edit Book Details
-    form(action=`/books/updated/${book.isbn}` method="POST")
+    form(action="/" + book.isbn + "?_method=PUT" method="POST")
+      input(type="hidden" name="_method" value="PUT")
       div
         label(for="title") Title:
         input(type="text" name="title" id="title" value=book.title required)

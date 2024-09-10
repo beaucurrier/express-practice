@@ -1,4 +1,4 @@
-var booksData = {
+module.exports= {
     books:[
         {
             "isbn":"9781593279509",
@@ -89,5 +89,4 @@ var booksData = {
             "website":"https://doi.org/10.1007/978-1-4842-4221-6"
         }
     ]
-}
-module.exports = booksData;
+};
