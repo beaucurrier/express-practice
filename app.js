@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const methodOverride = require('method-override');
 const app = express();
-const books = require('./books-data').books;
+let books = require('./books-data').books;
 
 
 // Set the view engine to pug
@@ -29,6 +29,10 @@ app.delete("/:id", function (req, res) {
     res.redirect("/");
 });
 
+app.get("/new", function (req, res) {
+    res.render("new-book");
+});
+
 app.get("/:id", function (req, res) {
     const isbn = req.params.id;
     const book = books.find((book) => book.isbn === isbn);
@@ -40,9 +44,6 @@ app.put('/:id', function(req, res) {
     books[bookIndex] = req.body;
     res.redirect("/");
 })
-app.get("/new", function (req, res) {
-    res.render("new-book");
-});
 
 app.get("/edit/:id", function (req, res) {
     const isbn = req.params.id;
