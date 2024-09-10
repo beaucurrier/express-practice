@@ -90,4 +90,3 @@ module.exports= {
         }
     ]
 };
-module.exports = booksData;
