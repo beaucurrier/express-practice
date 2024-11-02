@@ -4,10 +4,10 @@ const methodOverride = require('method-override');
 let books = require('./books-data').books;
 const Book = require("./models/Books")
 const mongoose = require("mongoose")
-require("dotenv").config
 
+require("dotenv").config();
 const app = express();
-mongoose.connect(`${process.env.MONGO_DB_API_KEY}`)
+mongoose.connect(`mongodb+srv://${process.env.MONGO_DB_API_KEY}@cluster0.fw3p5.mongodb.net/`)
 
 // Set the view engine to pug
 app.set('views', path.join(__dirname, 'views'));
@@ -39,7 +39,7 @@ app.get("/new", function (req, res) {
 
 app.get("/:id", async function (req, res) {
     const isbn = req.params.id;
-    const book = await Book.find({isbn: isbn})
+    const book = await Book.find({isbn: +isbn})
     res.render("book-details", {book})
 })
 app.put('/:id', async function(req, res) {
